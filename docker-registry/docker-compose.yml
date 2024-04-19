@@ -1,4 +1,7 @@
- docker-registry:
+version: "3"
+
+services:
+  docker-registry:
     restart: unless-stopped
     container_name: docker-registry
     image: registry:2
