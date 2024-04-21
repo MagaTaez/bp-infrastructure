@@ -2,12 +2,11 @@ version: "3"
 
 services:
   keycloak:
-    depends_on:
-      mysql:
-        condition: service_healthy
     restart: unless-stopped
     container_name: keycloak
     image: quay.io/keycloak/keycloak:24.0.2
+    networks:
+      - mysql
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: yNCMfkH.1337
@@ -18,3 +17,8 @@ services:
       DB_PASSWORD: aplotPWD
     command:
       - start
+
+networks:
+  mysql:
+    external:
+      name: mysql_default
