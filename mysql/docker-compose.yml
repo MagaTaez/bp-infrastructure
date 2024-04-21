@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     container_name: mysql
     image: mysql
+    networks:
+      - dockerregistry
     ports:
       - 3306:3306
     environment:
@@ -15,3 +17,8 @@ services:
 volumes:
   my-db:
     external: false
+
+networks:
+  dockerregistry:
+    external:
+      name: docker-registry_default
