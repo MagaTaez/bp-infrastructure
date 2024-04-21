@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  bp-backend:
+    restart: unless-stopped
+    container_name: bp-backend
+    image: docker-registry.pfalink.com/bp-backend:latest
+    networks:
+      - dockerregistry
+    environment:
+      - EXEC_ENV=production
+
+networks:
+  dockerregistry:
+    external:
+      name: docker-registry_default
