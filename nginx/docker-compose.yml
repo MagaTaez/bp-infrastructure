@@ -8,6 +8,7 @@ services:
     hostname: nginx
     networks:
       - dockerregistry
+      - keycloak
     ports:
       - "80:80"
       - "443:443"
@@ -18,3 +19,6 @@ networks:
   dockerregistry:
     external:
       name: docker-registry_default
+  keycloak:
+    external:
+      name: keycloak_default
