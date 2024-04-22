@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  bp-frontend:
+    restart: unless-stopped
+    container_name: bp-frontend
+    image: docker-registry.pfalink.com/bp-frontend:latest
+    networks:
+      - dockerregistry
+
+networks:
+  dockerregistry:
+    external:
+      name: docker-registry_default
